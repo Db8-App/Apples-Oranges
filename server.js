@@ -1,12 +1,18 @@
-var express = require("express");
 var body = require("body-parser");
 var method = require("method-override");
-var exphbs = require("express-handlebars");
+var express = require("express");
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 var path = require("path");
-var app = express();
+var exphbs = require("express-handlebars");
 var db = require("./models");
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
-var router = require(path.join(__dirname, "controllers", "db8_controller.js"));
+var router = require(path.join(__dirname, "controllers", "db8_controller.js")).router;
+var changeVal = require(path.join(__dirname, "controllers", "db8_controller.js")).changeVal;
+// var increaseVal = require(path.join(__dirname, "controllers", "db8_controller.js")).increaseVal;
 
 var port = process.env.PORT || 7000;
 
@@ -18,20 +24,36 @@ app.use(method("_method"));
 
 app.use(body.json()); // support json encoded bodies
 app.use(body.urlencoded({ extended: true })); // support encoded bodies
-
 app.use(express.static(path.join('public')));
 
 app.use("/", router);
 
+io.on('connection', function(socket){
+	socket.on('disconnect', function(){
+		console.log('user disconnected');
+	})
+
+	socket.on('chat message', function(msg){
+		io.emit('chat message', msg);
+	});
+
+	socket.on('vote', function(id) {
+		changeVal(id.id, id.value, function(val){
+				io.emit("response", {id: id.id,
+					val: val});
+		});
+	});
+
+	socket.on("debate Update", function(){
+		console.log("debate should update")
+	})
+});
+// {force true}
 db.sequelize.sync().then(function(){
-	app.listen(port, function(error){
+	http.listen(port, function(error){
 		if (error){
 			return console.log(error);
 		}
-
 		console.log("server is listening on http://localhost:%s", port);
 	});
 });
-
-
-

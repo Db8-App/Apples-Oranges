@@ -1,3 +1,117 @@
-<h1>
-	Test Page
-</h1>
+<!-- <h1>dB8</h1>
+
+{{#each debates}}
+		<a href="/db8/{{this.id}}"><h2>{{this.debate_topic}}</h2></a>
+{{/each}}
+
+<br>
+<br>
+<button type="submit" class="createDebate">Create Debate</button>
+
+
+<div id="modal" class="modal">
+	<h2>Create a Debate</h1>
+	<form action="/api/debates" method="POST">
+			<input type="text" name="topic" placeholder="Ex. What is Better: Chinese Food vs Pizza"><br>
+			<input type="text" name="sideA" placeholder="Ex. Chinese Food"><br>
+			<input type="text" name="sideB" placeholder="Ex. Pizza"><br>
+			<input type="submit" name="submit">
+	</form>
+</div> -->
+
+
+   <!-- <div id="preloader">
+      <div id="status">
+         <img src="images/preloader.gif" height="64" width="64" alt="">
+      </div>
+   </div> -->
+
+   <header>
+
+      <div class="logo">
+         <!-- <a class="smoothscroll" href="#hero"><img alt="" src="/assets/images/logo.png"></a> -->
+      </div>
+
+      <!-- <nav id="nav-wrap">
+
+         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show Menu</a>
+	      <a class="mobile-btn" href="#" title="Hide navigation">Hide Menu</a>
+
+      </nav> -->
+
+      <ul class="header-social">
+         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+         <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+      </ul>
+
+   </header>
+
+   <section id="hero">
+
+	   <div class="row">
+
+		   <div class="twelve columns">
+
+			   <div class="hero-text">
+           <h1>Apples & Oranges</h1>
+           <p>
+
+           </p>
+
+				   <h2 class="responsive-headline">Reasoning in an Argumentative Age</h2>
+
+				   <p>Now there's a dedicated online space where individuals can settle
+           their differences in an informed way with the moderation, ___, and user incentives
+         needed to promote an informed, engaged, and civilized debate.</p>
+			   </div>
+
+
+				 {{#each debates}}
+				 		<a href="/db8/{{this.id}}"><h2>{{this.debate_topic}}</h2></a>
+				 {{/each}}
+
+				 <!-- <br>
+				 <br> -->
+				 <button type="submit" class="createDebate trial">Create Debate</button>
+
+
+				 <div id="modal" class="modal">
+				 	<h2>Create a Debate</h1>
+				 	<form action="/api/debates" method="POST">
+				 			<input type="text" name="topic" placeholder="Ex. What is Better: Chinese Food vs Pizza"><br>
+				 			<input type="text" name="sideA" placeholder="Ex. Chinese Food"><br>
+				 			<input type="text" name="sideB" placeholder="Ex. Pizza"><br>
+				 			<input type="submit" name="submit">
+				 	</form>
+				 </div>
+
+            <!-- <div class="buttons"> -->
+							<!-- <a class="button trial" href="/db8/{{this.id}}"> -->
+								<!-- <button type="submit" class="createDebate">Create Debate</button> -->
+               <!-- <button type="submit" class="button trial" href="/db8/{{this.id}}">Create a Debate</button>
+               <a class="button learn-more smoothscroll" href="#features">View Top Debates</a>
+            </div> -->
+
+						<!-- <button type="submit" class="createDebate">Create Debate</button>
+
+
+						<div id="modal" class="modal">
+							<h2>Create a Debate</h1>
+							<form action="/api/debates" method="POST">
+									<input type="text" name="topic" placeholder="Ex. What is Better: Chinese Food vs Pizza"><br>
+									<input type="text" name="sideA" placeholder="Ex. Chinese Food"><br>
+									<input type="text" name="sideB" placeholder="Ex. Pizza"><br>
+									<input type="submit" name="submit">
+							</form>
+						</div> -->
+
+            <div class="hero-image">
+               <img src="/assets/images/audience.png" alt="" />
+            </div>
+
+		   </div>
+
+	   </div>
+
+   </section>
